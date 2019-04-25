@@ -1,7 +1,7 @@
 from rest_framework.viewsets import ModelViewSet, ViewSet
 from rest_framework.response import Response
 from ..models import Categoria, Producto
-from .serializers import CategoriaSerializer
+from .serializers import CategoriaSerializer, ProductoBasicoSerializer
 
 
 class CategoriaApiView(ModelViewSet):
@@ -24,3 +24,6 @@ class CategoriaDosApiView(ViewSet):
         return Response(serializer.data)
 
 
+class ProductoApiView(ModelViewSet):
+    serializer_class = ProductoBasicoSerializer
+    queryset = Producto.objects.all()
