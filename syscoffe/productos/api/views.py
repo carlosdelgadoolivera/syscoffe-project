@@ -1,3 +1,4 @@
+from rest_framework import permissions
 from rest_framework.viewsets import ModelViewSet, ViewSet
 from rest_framework.response import Response
 from ..models import Categoria, Producto
@@ -14,7 +15,7 @@ class CategoriaApiView(ModelViewSet):
     """
     serializer_class = CategoriaSerializer
     queryset = Categoria.objects.all()
-
+    permission_classes = [permissions.AllowAny,]
 
 class CategoriaDosApiView(ViewSet):
 
